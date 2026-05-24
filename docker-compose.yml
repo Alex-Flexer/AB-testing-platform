@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: my-app
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "80:80"
+    working_dir: /app
+    command: ["python", "main.py"]
